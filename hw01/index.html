@@ -4,26 +4,30 @@
     <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
     </style>
   </head>
-<body>
-   <div class="container">
+<body ng-app="LunchCheck" >
+   <div class="container" ng-controller="LunchCheckController as vm">
      <h1>Lunch Checker</h1>
 
          <div class="form-group">
-             <input id="lunch-menu" type="text"
+             <input id="lunch-menu" type="text" ng-model="vm.dishes"
              placeholder="list comma separated dishes you usually have for lunch"
              class="form-control">
          </div>
          <div class="form-group">
-             <button class="btn btn-default">Check If Too Much</button>
+             <button class="btn btn-default" ng-click="vm.onCheck($event)">Check If Too Much</button>
          </div>
          <div class="form-group message">
+            {{vm.message}}
            <!-- Your message can go here. -->
+            
          </div>
    </div>
 
 </body>
+<script type="text/javascript" src="script/app.js"></script>
 </html>
